@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thejaswini H M | AI & Data Science Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fc;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* ---------- NAVBAR ---------- */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #6c3df4;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6c3df4;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ---------- HERO ---------- */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6c3df4, #00bcd4);
+            color: white;
+            padding: 100px 20px 50px;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 58px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 27px;
+            margin-bottom: 20px;
+            color: #ffe66d;
+        }
+
+        .hero-text p {
+            max-width: 650px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #6c3df4;
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .profile {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* ---------- GENERAL ---------- */
+
+        section {
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #333;
+        }
+
+        .section-title span {
+            display: block;
+            width: 70px;
+            height: 4px;
+            margin: 12px auto;
+            background: linear-gradient(90deg, #6c3df4, #00bcd4);
+            border-radius: 10px;
+        }
+
+        /* ---------- ABOUT ---------- */
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .about-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .about-card h3 {
+            color: #6c3df4;
+            margin-bottom: 15px;
+        }
+
+        /* ---------- EDUCATION ---------- */
+
+        .timeline {
+            border-left: 4px solid #6c3df4;
+            padding-left: 30px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #6c3df4;
+            border-radius: 50%;
+            left: -39px;
+            top: 30px;
+        }
+
+        .timeline-item h3 {
+            color: #6c3df4;
+        }
+
+        /* ---------- SKILLS ---------- */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 7px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(108,61,244,0.2);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            color: #333;
+            font-size: 17px;
+        }
+
+        /* ---------- CARDS ---------- */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            color: #6c3df4;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            background: #eee8ff;
+            color: #6c3df4;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background: #6c3df4;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            margin-right: 5px;
+        }
+
+        .card-btn:hover {
+            background: #5228d4;
+        }
+
+        /* ---------- PROJECT FILTER ---------- */
+
+        .filters {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            border: none;
+            background: white;
+            padding: 10px 18px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #6c3df4;
+            color: white;
+        }
+
+        /* ---------- CONTACT ---------- */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info,
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            color: #6c3df4;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+        }
+
+        .contact-info a {
+            margin-top: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .contact-form textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        .submit-btn {
+            border: none;
+            background: #6c3df4;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background: #171525;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer span {
+            color: #9c7cff;
+        }
+
+        /* ---------- SCROLL TOP ---------- */
+
+        #topBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: #6c3df4;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        /* ---------- ANIMATION ---------- */
+
+        .fade-in {
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 1000px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .hero-container,
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .profile {
+                width: 230px;
+                height: 230px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-text h2 {
+                font-size: 21px;
+            }
+
+            .skills-grid,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <div class="nav-container">
+
+        <div class="logo">Thejaswini.</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div class="hero-text fade-in">
+
+            <h1>Hi, I'm Thejaswini H M 👋</h1>
+
+            <h2>B.E. Artificial Intelligence & Data Science Student</h2>
+
+            <p>
+                I am an Artificial Intelligence and Data Science student at
+                GSSS Institute of Engineering and Technology for Women,
+                Mysore, Karnataka. I am passionate about Python, AI,
+                Machine Learning, Data Science and Data Analytics, and
+                I enjoy building practical technology solutions.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="profile">
+
+            <!--
+                Put your photo in the same folder as this HTML file
+                and name it profile.jpg
+            -->
+
+            <img src="profile.jpg" alt="Thejaswini H M Profile Photo">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <span></span>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-card">
+
+                <h3>Who I Am</h3>
+
+                <p>
+                    I am Thejaswini H M, a second-year B.E. student
+                    specializing in Artificial Intelligence and Data Science
+                    at GSSS Institute of Engineering and Technology for Women,
+                    Mysore, Karnataka.
+                </p>
+
+                <br>
+
+                <p>
+                    I am interested in Artificial Intelligence, Machine
+                    Learning, Data Science, Data Analytics and software
+                    development. I enjoy learning new technologies and
+                    applying my knowledge through practical projects.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>Career Objective</h3>
+
+                <p>
+                    My goal is to build a strong career in Artificial
+                    Intelligence and Data Science by developing intelligent,
+                    data-driven solutions that solve real-world problems.
+                </p>
+
+                <br>
+
+                <p>
+                    I am continuously improving my programming, analytical
+                    and problem-solving skills and looking forward to
+                    placement and industry opportunities where I can learn,
+                    contribute and grow.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Education</h2>
+            <span></span>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <h3>B.E. Artificial Intelligence & Data Science</h3>
+
+                <p>
+                    <strong>
+                        GSSS Institute of Engineering and Technology for Women
+                    </strong>
+                </p>
+
+                <p>Mysore, Karnataka</p>
+
+                <p>
+                    Currently pursuing my Bachelor's degree in Artificial
+                    Intelligence and Data Science.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+            <span></span>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-icon">🐍</div>
+                <h3>Python</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">☕</div>
+                <h3>Java</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🗄️</div>
+                <h3>SQL</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🧠</div>
+                <h3>Machine Learning</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Data Science</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <h3>Power BI</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📑</div>
+                <h3>Excel</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🐼</div>
+                <h3>Pandas</h3>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🔢</div>
+                <h3>NumPy</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CERTIFICATIONS ================= -->
+
+<section id="certifications">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Certifications</h2>
+            <span></span>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Generative AI & Data Science</h3>
+
+                <p>
+                    Certificate demonstrating learning and practical
+                    understanding of Generative AI, Data Science and
+                    Analytics concepts.
+                </p>
+
+                <a href="#" class="card-btn">
+                    View Certificate
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Introduction to Generative AI Studio</h3>
+
+                <p>
+                    Certificate covering the fundamentals and practical
+                    concepts of Generative AI Studio.
+                </p>
+
+                <a href="#" class="card-btn">
+                    View Certificate
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>AI & Data Science Learning</h3>
+
+                <p>
+                    Continuously developing knowledge in Artificial
+                    Intelligence, Data Science, Python and analytics
+                    through courses and practical learning.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Experience & Learning</h2>
+            <span></span>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Project-Based Learning</h3>
+
+                <p>
+                    Building practical projects in Artificial Intelligence,
+                    Machine Learning, Data Analytics and Python to strengthen
+                    programming, analytical and problem-solving skills.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Analytics</span>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Continuous Skill Development</h3>
+
+                <p>
+                    Actively learning technologies including Python, Java,
+                    SQL, Pandas, NumPy, Power BI, Excel, Artificial
+                    Intelligence and Machine Learning.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Power BI</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <span></span>
+        </div>
+
+        <div class="filters">
+
+            <button class="filter-btn active" onclick="filterProjects('all', this)">
+                All
+            </button>
+
+            <button class="filter-btn" onclick="filterProjects('ai', this)">
+                AI
+            </button>
+
+            <button class="filter-btn" onclick="filterProjects('ml', this)">
+                ML
+            </button>
+
+            <button class="filter-btn" onclick="filterProjects('data', this)">
+                Data Analytics
+            </button>
+
+            <button class="filter-btn" onclick="filterProjects('python', this)">
+                Python
+            </button>
+
+        </div>
+
+
+        <div class="cards">
+
+            <!-- PROJECT 1 -->
+
+            <div class="card project ai">
+
+                <h3>EduPredict</h3>
+
+                <p>
+                    A student result prediction platform that uses academic
+                    information such as attendance, internal marks,
+                    previous CGPA, assignments, participation and
+                    extra activities to predict student performance.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Data Science</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="card project ml">
+
+                <h3>Smart Parking Predictor</h3>
+
+                <p>
+                    A machine learning project designed to predict parking
+                    availability using historical parking data and
+                    data analysis techniques.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">ML</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="card project data">
+
+                <h3>Data Analytics Dashboard</h3>
+
+                <p>
+                    An interactive analytics dashboard designed to analyze
+                    datasets and present meaningful insights using charts,
+                    reports and visualizations.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Analytics</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="card project python">
+
+                <h3>Smart Expense Tracker</h3>
+
+                <p>
+                    A Python-based application concept for recording
+                    expenses, categorizing spending and analyzing
+                    financial data.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="card project ai">
+
+                <h3>AI Resume Analyzer</h3>
+
+                <p>
+                    An AI-based project concept that analyzes resumes
+                    and provides insights about skills and job suitability.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">NLP</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 6 -->
+
+            <div class="card project python">
+
+                <h3>Python Data Toolkit</h3>
+
+                <p>
+                    A collection of Python-based data analysis exercises
+                    using Pandas and NumPy for data manipulation,
+                    processing and analysis.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Data Science</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section id="achievements">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Achievements & Activities</h2>
+            <span></span>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🏆 Academic Growth</h3>
+
+                <p>
+                    Continuously developing technical and problem-solving
+                    skills as a B.E. Artificial Intelligence and Data Science
+                    student.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>💡 Technical Projects</h3>
+
+                <p>
+                    Exploring practical project ideas in Artificial
+                    Intelligence, Machine Learning, Data Science,
+                    Data Analytics and Python.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🌱 AICTE Activities</h3>
+
+                <p>
+                    Participating in student activities and social
+                    initiatives including Swachh Bharat activities
+                    as part of college engagement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact Me</h2>
+            <span></span>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <h3>Let's Connect</h3>
+
+                <p>
+                    📧
+                    <strong>Email:</strong>
+                    <a href="mailto:hmthejaswini64@gmail.com">
+                        hmthejaswini64@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    📱
+                    <strong>Phone:</strong>
+                    <a href="tel:+918971527522">
+                        +91 89715 27522
+                    </a>
+                </p>
+
+                <p>
+                    📍
+                    <strong>Location:</strong>
+                    Mysore, Karnataka
+                </p>
+
+                <p>
+                    I am interested in learning opportunities, projects,
+                    collaborations and future placement opportunities in
+                    Artificial Intelligence, Data Science and related fields.
+                </p>
+
+                <br>
+
+                <a href="https://www.linkedin.com/" target="_blank" class="card-btn">
+                    LinkedIn
+                </a>
+
+                <a href="https://github.com/" target="_blank" class="card-btn">
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <input
+                    type="text"
+                    placeholder="Subject"
+                    required
+                >
+
+                <textarea
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button class="submit-btn" type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Thejaswini H M</span>.
+        All Rights Reserved.
+    </p>
+
+    <p>
+        B.E. Artificial Intelligence & Data Science
+    </p>
+
+    <p>
+        GSSS Institute of Engineering and Technology for Women,
+        Mysore, Karnataka
+    </p>
+
+</footer>
+
+
+<!-- ================= SCROLL TOP ================= -->
+
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // Mobile menu
+
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList.toggle("show");
+
+    }
+
+
+    // Project filtering
+
+    function filterProjects(category, button) {
+
+        const projects =
+            document.querySelectorAll(".project");
+
+        const buttons =
+            document.querySelectorAll(".filter-btn");
+
+        buttons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        projects.forEach(project => {
+
+            if (
+                category === "all" ||
+                project.classList.contains(category)
+            ) {
+
+                project.style.display = "block";
+
+            } else {
+
+                project.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    // Contact form
+
+    function sendMessage(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you! Your message has been received."
+        );
+
+        event.target.reset();
+
+    }
+
+
+    // Scroll to top button
+
+    window.onscroll = function () {
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+        if (
+            document.documentElement.scrollTop > 300
+        ) {
+
+            topBtn.style.display = "block";
+
+        } else {
+
+            topBtn.style.display = "none";
+
+        }
+
+    };
+
+
+    function scrollToTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    // Close mobile menu after clicking a link
+
+    document.querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                document
+                    .getElementById("navLinks")
+                    .classList.remove("show");
+
+            });
+
+        });
+
+</script>
+
+</body>
+</html>
